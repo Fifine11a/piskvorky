@@ -1,0 +1,9 @@
+body {
+  color: black;
+  /* barva textu se pak musí změnit na bílou! */
+  background-image: linear-gradient (#615dad, #ffc8da);
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+}
