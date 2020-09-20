@@ -22,3 +22,30 @@ h1 {
   font-family: 'Lobster', cursive;
   margin: 0;
 }
+
+.links {
+  text-decoration: none;
+  list-style-type: none;
+  text-align: center;
+  width: 350px;
+}
+
+.rules {
+  text-decoration: none;
+  background-color: #1fcca4;
+}
+
+.rules:hover,
+.rules:focus {
+  background-color: #1cbb96;
+}
+
+.newGame {
+  text-decoration: none;
+  background-color: #0197f6;
+}
+
+.newGame:hover,
+.newGame:focus {
+  background-color: #0090e9;
+}
