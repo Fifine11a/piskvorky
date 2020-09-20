@@ -4,6 +4,8 @@
   color: white;
   background: linear-gradient(#615dad, #ffc8da);
   width: 400px;
+  align-items: center;
+  padding: 50px 30px;
 }
 
 .headerPicture {
@@ -16,11 +18,14 @@
   width: 350px;
   height: 300px;
   text-align: center;
+  line-height: 25px;
 }
 
 h1 {
   font-family: 'Lobster', cursive;
   margin: 0;
+  font-size: 3em;
+  padding: 20px;
 }
 
 .links {
@@ -33,6 +38,7 @@ h1 {
 .rules {
   text-decoration: none;
   background-color: #1fcca4;
+  height: 50px;
 }
 
 .rules:hover,
@@ -43,6 +49,7 @@ h1 {
 .newGame {
   text-decoration: none;
   background-color: #0197f6;
+  height: 50px;
 }
 
 .newGame:hover,
