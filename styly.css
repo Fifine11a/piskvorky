@@ -1,10 +1,24 @@
-body {
-  color: black;
-  /* barva textu se pak musí změnit na bílou! */
-
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  color: white;
   background: linear-gradient(#615dad, #ffc8da);
+  width: 400px;
+}
+
+.headerPicture {
+  width: 350px;
+}
+
+.content {
+  background-color: #283e50;
+  color: white;
+  width: 350px;
+  height: 300px;
+  text-align: center;
 }
 
 h1 {
   font-family: 'Lobster', cursive;
+  margin: 0;
 }
