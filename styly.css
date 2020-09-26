@@ -45,7 +45,6 @@ h1 {
   background-color: #1fcca4;
   height: 40px;
   border: solid black 1px;
-  padding: 20px 0px 0px;
 }
 
 .rules:hover,
@@ -57,7 +56,6 @@ h1 {
   background-color: #0197f6;
   height: 40px;
   border: solid black 1px;
-  padding: 20px 0px 0px;
 }
 
 .newGame:hover,
@@ -69,6 +67,8 @@ a {
   text-decoration: none;
   color: white;
   height: 100%;
+  display: block;
+  padding: 10px 0 0;
 }
 
 p {
