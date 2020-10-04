@@ -89,10 +89,20 @@ p {
 .rulesContainer {
   background-color: #283e50;
   color: white;
-  border-radius: 3% 3% 0 0;
 }
 
 .rulesPage {
   padding: 60px 30px;
   background: linear-gradient(#615dad, #ffc8da);
+}
+
+.rulesComment {
+  font-style: italic;
+  color: #d4cecefa;
+  text-align: center;
+  padding: 10px 0 40px;
+}
+
+.instructions {
+  justify-content: space-around;
 }
