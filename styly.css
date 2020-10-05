@@ -79,17 +79,18 @@ p {
   padding: 30px 5px 0px;
 }
 
-.piskvorkyRules {
+.rulesContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.rulesContainer {
   background-color: #283e50;
   color: white;
   border-radius: 7px 7px 0 0;
+}
+
+.rulesContainer .title {
+  width: 100%;
 }
 
 .rulesPage {
@@ -123,14 +124,11 @@ p {
 }
 
 @media screen and (min-width: 540px) {
-  .piskvorkyRules {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
   .rulesContainer {
     max-width: 650px;
     align-self: center;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .instructions {
