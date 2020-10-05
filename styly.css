@@ -115,11 +115,13 @@ body {
 .rulesList {
   flex-wrap: wrap;
   width: 65%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .linksRules {
   text-align: center;
   width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .instructions {
