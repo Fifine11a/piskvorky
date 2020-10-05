@@ -123,10 +123,15 @@ p {
   width: 100%;
 }
 
+.xo {
+  width: 1em;
+  height: 1em;
+  filter: invert(100%);
+}
+
 @media screen and (min-width: 540px) {
   .rulesContainer {
     max-width: 650px;
-    align-self: center;
     flex-direction: row;
     flex-wrap: wrap;
   }
