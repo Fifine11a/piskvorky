@@ -53,8 +53,8 @@ h1 {
 .rules:focus,
 .backToMainPage:hover,
 .backToMainPage:focus,
-.backHomeBtn:hover,
-.backHomeBtn:focus {
+.backHome:hover,
+.backHome:focus {
   background-color: #1cbb96;
 }
 
@@ -66,8 +66,8 @@ h1 {
 
 .newGame:hover,
 .newGame:focus,
-.restartBtn:hover,
-.restartBtn:focus {
+.restartGame:hover,
+.restartGame:focus {
   background-color: #0090e9;
 }
 
