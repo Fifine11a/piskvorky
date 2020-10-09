@@ -52,7 +52,9 @@ h1 {
 .rules:hover,
 .rules:focus,
 .backToMainPage:hover,
-.backToMainPage:focus {
+.backToMainPage:focus,
+.backHomeBtn:hover,
+.backHomeBtn:focus {
   background-color: #1cbb96;
 }
 
@@ -63,7 +65,9 @@ h1 {
 }
 
 .newGame:hover,
-.newGame:focus {
+.newGame:focus,
+.restartBtn:hover,
+.restartBtn:focus {
   background-color: #0090e9;
 }
 
