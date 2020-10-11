@@ -1,10 +1,12 @@
+/* Main page to be updated eventually :) */
+
 .mainPage {
   display: flex;
   flex-direction: column;
   color: white;
+  align-items: center;
   background: linear-gradient(#615dad, #ffc8da);
   width: 400px;
-  align-items: center;
   padding: 50px 30px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -30,6 +32,7 @@
 }
 
 h1 {
+  /* Same header used all through the project */
   font-family: 'Lobster', cursive;
   margin: 0;
   font-size: 3em;
@@ -85,6 +88,7 @@ p {
   padding: 30px 5px 0px;
 }
 
+.mainPageContainer,
 .rulesContainer {
   display: flex;
   flex-direction: column;
@@ -95,11 +99,14 @@ p {
   align-items: center;
 }
 
+/* "Pravidla" page */
+
 .rulesContainer .title {
   width: 100%;
 }
 
-.rulesPage {
+.rulesPage,
+.mainPage {
   margin: 50px auto;
   width: 400px;
 }
@@ -147,6 +154,7 @@ body {
   filter: invert(100%);
 }
 
+.mainPageContainer,
 .instructionsContainer,
 .newGameContainer {
   display: flex;
@@ -166,17 +174,18 @@ body {
   }
 }
 
+/* New game page */
+
 .gamePageTopRibbon {
   display: flex;
   width: 100%;
   align-items: baseline;
-  align-content: space-between; /* proč to nefunguje??? */
+  justify-content: space-between;
   margin: 30px 0;
 }
 
-.gamePageTopRibbon img {
-  margin-left: auto;
-  margin-right: auto;
+.squareLinks {
+  display: flex;
 }
 
 .backHome,
@@ -184,6 +193,7 @@ body {
   height: 100%;
   width: 40px;
   text-align: center;
+  padding: 0 0 5px;
 }
 
 .player {
@@ -193,13 +203,29 @@ body {
   display: flex;
 }
 
+/* circle and cross are styled with a pseudo element, not an img */
+
 .player::after {
-  <img class="xo" src="images/circle.svg" alt="kolečko" />
-} /* tohle vůbec netuším */
+  content: '';
+  height: 15px;
+  width: 15px;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin: 0 3px;
+}
 
 .newGameContainer {
   max-width: 80vmin;
   margin: 50px auto;
+}
+
+/* the game field */
+
+.gameField {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .newGamePage button {
@@ -219,11 +245,4 @@ body {
 button:hover,
 button:focus {
   filter: brightness(125%);
-}
-
-.gameField {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
 }
