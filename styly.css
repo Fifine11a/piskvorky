@@ -182,6 +182,7 @@ body {
   align-items: baseline;
   justify-content: space-between;
   margin: 30px 0;
+  max-height: 50px;
 }
 
 .squareLinks {
@@ -198,23 +199,33 @@ body {
   margin-left: 1px;
 }
 
-.player {
+#player {
   height: 100%;
   text-transform: uppercase;
   font-size: large;
   display: flex;
 }
 
-/* circle and cross are styled with a pseudo element, not an img */
+/* "hraje:" circle and cross are styled with a pseudo element, not an img */
 
-.player::after {
+#player::after {
+  /*oba mi zatím vytékají z rodiče :) i když jsem nastavila top ribbon max výšku */
   content: '';
   height: 20px;
   width: 20px;
-  border: 2px solid white;
+  border: 4px solid white;
   border-radius: 50%;
   margin: 0 5px;
   padding: 0 0 2px 2px;
+}
+
+#player .playerCross::after {
+  display: inline-block;
+  content: '\00d7';
+  color: white;
+  margin: 0 5px;
+  padding: 0 0 2px 2px;
+  font-size: 50px;
 }
 
 .newGameContainer {
@@ -248,4 +259,24 @@ body {
 button:hover,
 button:focus {
   filter: brightness(125%);
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+/* game field buttons styled wit cross and circle */
+
+.selectedCircle {
+  content: '';
+  background: url('images/circle.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px;
+}
+
+.selectedCross {
+  content: '';
+  background: url('images/cross.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 40px;
 }
