@@ -2,25 +2,32 @@
 
 console.log('You better work, b*tch!');
 
-/* 
-jedna funkce na přehození "kdo hraje"
-druhá na tah na poli
-třetí na spojení obou výše - tu spustí kliknutí
+let player = 'circle';
 
-- bonus (disable a animace)
-*/
+if (player === 'circle') {
+  const circlePlayed = (event) => {
+    event.target.classList.add('selectedCircle');
+  };
 
-/* kolečko na první pole */
+  const buttons = document.querySelectorAll('button');
+  for (let i = 0; i < buttons.length; i += 1) {
+    buttons[i].addEventListener('click', circlePlayed);
+  }
 
-const circlePlayed = (event) => {
-  event.target.classList.add('selectedCircle');
-};
+  player = 'cross';
+} else {
+  document.getElementById('player').classList.toggle('.playerCross');
 
-document.querySelector('#btn1').addEventListener('click', circlePlayed);
+  const crossPlayed = (event) => {
+    event.target.classList.add('selectedCross');
+  };
 
-/* křížek na druhé pole */
-const crossPlayed = (event) => {
-  event.target.classList.add('selectedCross');
-};
+  const buttons = document.querySelectorAll('button');
+  for (let i = 0; i < buttons.length; i += 1) {
+    buttons[i].addEventListener('click', crossPlayed);
+  }
 
-document.querySelector('#btn2').addEventListener('click', crossPlayed);
+  document.getElementById('player').classList.toggle('.playerCross');
+
+  player = 'circle';
+}
