@@ -2,33 +2,24 @@
 
 console.log('You better work, b*tch!');
 
-let player = 'circle';
+let whoPlays = 'circle';
 
-if (document.getElementById('player').classList.contains('.playerCross')) {
-  const crossPlayed = (event) => {
-    event.target.classList.add('selectedCross');
-  };
+const player = document.querySelector('.player');
 
-  const buttons = document.querySelectorAll('button');
-
-  for (let i = 0; i < buttons.length; i += 1) {
-    buttons[i].addEventListener('click', crossPlayed);
-  }
-
-  document.getElementById('player').classList.toggle('.playerCross');
-
-  player = 'circle';
-} else {
-  const circlePlayed = (event) => {
+const gamePlayed = (event) => {
+  if (whoPlays === 'circle') {
     event.target.classList.add('selectedCircle');
-  };
-
-  const buttons = document.querySelectorAll('button');
-  for (let i = 0; i < buttons.length; i += 1) {
-    buttons[i].addEventListener('click', circlePlayed);
+    player.classList.toggle('.playerCross');
+    whoPlays = 'cross';
+  } else {
+    event.target.classList.add('selectedCross');
+    player.classList.toggle('.playerCross');
+    whoPlays = 'circle';
   }
+};
 
-  document.getElementById('player').classList.toggle('.playerCross');
+const buttons = document.querySelectorAll('button');
 
-  player = 'cross';
+for (let i = 0; i < buttons.length; i += 1) {
+  buttons[i].addEventListener('click', gamePlayed);
 }
