@@ -208,7 +208,7 @@ body {
 
 /* "hraje:" circle and cross are styled with a pseudo element, not an img */
 
-.playerCircle::after {
+#player::after {
   /*oba mi zatím vytékají z rodiče :) i když jsem nastavila top ribbon max výšku */
   content: '';
   height: 20px;
@@ -219,7 +219,7 @@ body {
   padding: 0 0 2px 2px;
 }
 
-.playerCross::after {
+#player .playerCross::after {
   display: inline-block;
   content: '\00d7';
   color: white;
