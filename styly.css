@@ -278,6 +278,7 @@ button:focus {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 40px;
+  animation: createBox 0.2s;
 }
 
 .selectedCross {
@@ -286,4 +287,14 @@ button:focus {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 40px;
+  animation: createBox 0.18s;
+}
+
+@keyframes createBox {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
