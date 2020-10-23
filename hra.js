@@ -9,11 +9,11 @@ const player = document.querySelector('.player');
 const gamePlayed = (event) => {
   if (whoPlays === 'circle') {
     event.target.classList.add('selectedCircle');
-    player.classList.toggle('.playerCross');
+    player.className = 'player playerCross';
     whoPlays = 'cross';
   } else {
     event.target.classList.add('selectedCross');
-    player.classList.toggle('.playerCross');
+    player.className = 'player playerCircle';
     whoPlays = 'circle';
   }
 };
