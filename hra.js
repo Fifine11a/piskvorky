@@ -2,26 +2,26 @@
 
 console.log('You better work, b*tch!');
 
-/* placing cross/ circle where clicked and switching the cross/ cirsle icon on the top ribbon */
 let whoPlays = 'circle';
 
 const player = document.querySelector('.player');
+const buttons = document.querySelectorAll('button');
 
 const gamePlayed = (event) => {
   if (whoPlays === 'circle') {
     event.target.classList.add('selectedCircle');
     event.target.setAttribute('disabled', true);
     player.className = 'player playerCross';
+    isWinningMove(buttons[i]);
     whoPlays = 'cross';
   } else {
     event.target.classList.add('selectedCross');
     player.className = 'player playerCircle';
     event.target.setAttribute('disabled', true);
+    isWinningMove(buttons[i]);
     whoPlays = 'circle';
   }
 };
-
-const buttons = document.querySelectorAll('button');
 
 for (let i = 0; i < buttons.length; i += 1) {
   buttons[i].addEventListener('click', gamePlayed);
@@ -31,34 +31,31 @@ for (let i = 0; i < buttons.length; i += 1) {
 
 /* getting click position - row and column number */
 
-const boardSize = 10; // 10x10
-const fields = document.querySelectorAll('.button');
+const boardSize = 10;
 
 const getPosition = (field) => {
   let fieldIndex = 0;
-  while (fieldIndex < fields.length) {
-    if (field === fields[fieldIndex]) {
+  while (fieldIndex < buttons.length) {
+    if (field === buttons[fieldIndex]) {
       break;
     }
     fieldIndex++;
   }
 
   return {
-    row: Math.floor(
-      fieldIndex / boardSize,
-    ) /* this will be use as the input variables for the following function */,
+    row: Math.floor(fieldIndex / boardSize),
     column: fieldIndex % boardSize,
   };
 };
 
 /* getting the exact field position */
 
-const getField = (row, column) => fields[row * boardSize + column];
-
-/* getting content of a field */
+const getField = (row, column /* given by getPosition*/) => {
+  return (selectedField = buttons[row * boardSize + column]);
+};
 
 const getSymbol = (field) => {
-  // Název třídy přizpůsob tvému kódu.
+  /* gets the exact button on the field */
   if (field.classList.contains('selectedCross')) {
     return 'cross';
   } else if (field.classList.contains('selectedCircle')) {
@@ -66,14 +63,59 @@ const getSymbol = (field) => {
   }
 };
 
-/* 
-- the click event that triggers the cross/circle appearance on the field must also return back the position and info whether there was a circle or cross placed
+/* checking for 5 symbols */
 
-- the position will be used by the getField function which gives field number
+const symbolsToWin = 5;
+const isWinningMove = (field) => {
+  const origin = getPosition(field);
+  const symbol = getSymbol(field);
 
-- I need two empty errays, one for circles, one for cross - getSymbol will determine to which array the field number will be added
+  let i;
 
-- what I need the array to do is when nmber is added, to sort the number from biggest to smallest
+  /* horizontally */
 
-- I also need a while cycle to go through the arrays with multiple ifs inside which will compare the values
-*/
+  let inRow = 1;
+  i = origin.column;
+  while (i > 0 && symbol === getSymbol(getField(origin.row, i - 1))) {
+    inRow++;
+    i--;
+  }
+
+  i = origin.column;
+  while (
+    i < boardSize - 1 &&
+    symbol === getSymbol(getField(origin.row, i + 1))
+  ) {
+    inRow++;
+    i++;
+  }
+
+  if (inRow >= symbolsToWin) {
+    return true;
+  }
+
+  /* vertically */
+
+  let inColumn = 1;
+
+  i = origin.row;
+  while (i > 0 && symbol === getSymbol(getField(i - 1, origin.column))) {
+    inColumn++;
+    i--;
+  }
+
+  i = origin.row;
+  while (
+    i < boardSize - 1 &&
+    symbol === getSymbol(getField(i + 1, origin.column))
+  ) {
+    inColumn++;
+    i++;
+  }
+
+  if (inColumn >= symbolsToWin) {
+    return true;
+  }
+
+  return false;
+};
