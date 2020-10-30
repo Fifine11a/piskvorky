@@ -3,6 +3,7 @@
 console.log('You better work, b*tch!');
 
 let whoPlays = 'circle';
+let i = 0;
 
 const player = document.querySelector('.player');
 const buttons = document.querySelectorAll('button');
@@ -12,13 +13,13 @@ const gamePlayed = (event) => {
     event.target.classList.add('selectedCircle');
     event.target.setAttribute('disabled', true);
     player.className = 'player playerCross';
-    isWinningMove(buttons[i]);
+    winnerAnnounced(event.target);
     whoPlays = 'cross';
   } else {
     event.target.classList.add('selectedCross');
     player.className = 'player playerCircle';
     event.target.setAttribute('disabled', true);
-    isWinningMove(buttons[i]);
+    winnerAnnounced(event.target);
     whoPlays = 'circle';
   }
 };
@@ -31,7 +32,7 @@ for (let i = 0; i < buttons.length; i += 1) {
 
 /* getting click position - row and column number */
 
-const boardSize = 10;
+const boardSize = 10; /* that is 10x10 */
 
 const getPosition = (field) => {
   let fieldIndex = 0;
@@ -48,11 +49,9 @@ const getPosition = (field) => {
   };
 };
 
-/* getting the exact field position */
+/* getting the exact DOM of the field */
 
-const getField = (row, column /* given by getPosition*/) => {
-  return (selectedField = buttons[row * boardSize + column]);
-};
+const getField = (row, column) => buttons[row * boardSize + column];
 
 const getSymbol = (field) => {
   /* gets the exact button on the field */
@@ -118,4 +117,16 @@ const isWinningMove = (field) => {
   }
 
   return false;
+};
+
+const winnerAnnounced = (field) => {
+  if (isWinningMove(field) === true) {
+    if (getSymbol(field) === 'circle') {
+      confirm('Vyhrává kolečko! Chcete hrát znovu?');
+      location.reload();
+    } else if (getSymbol(field) === 'cross') {
+      confirm('Vyhrává křížek! Chcete hrát znovu?');
+      location.reload();
+    }
+  }
 };
