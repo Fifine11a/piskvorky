@@ -53,8 +53,8 @@ const getPosition = (field) => {
 
 const getField = (row, column) => buttons[row * boardSize + column];
 
+/* getting the cross/ circle of the clicked field */
 const getSymbol = (field) => {
-  /* gets the exact button on the field */
   if (field.classList.contains('selectedCross')) {
     return 'cross';
   } else if (field.classList.contains('selectedCircle')) {
@@ -116,6 +116,37 @@ const isWinningMove = (field) => {
     return true;
   }
 
+  /* diagonally */
+
+  /*
+  let inDiagonal = 1;
+
+  r = origin.row;
+  c = origin.column;
+
+  while (r > 0 && c > 0 && symbol === getSymbol(getField(r - 1, c - 1))) {
+    inDiagonal++;
+    r--;
+    c--;
+  }
+
+  r = origin.row;
+  c = origin.column;
+
+  while (
+    r < boardSize - 1 &&
+    c < boardSize - 1 &&
+    symbol === getSymbol(getField(r + 1, c + 1))
+  ) {
+    inDiagonal++;
+    r++;
+    c++;
+  }
+
+  if (inDiagonal >= symbolsToWin) {
+    return true;
+  }
+*/
   return false;
 };
 

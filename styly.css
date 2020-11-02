@@ -277,7 +277,7 @@ button:focus {
   background: url('images/circle.svg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 40px;
+  background-size: 90%;
   animation: createBox 0.2s;
 }
 
@@ -286,7 +286,7 @@ button:focus {
   background: url('images/cross.svg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 40px;
+  background-size: 90%;
   animation: createBox 0.18s;
 }
 
